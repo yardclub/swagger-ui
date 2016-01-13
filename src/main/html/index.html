@@ -35,7 +35,8 @@
       if (url && url.length > 1) {
         url = decodeURIComponent(url[1]);
       } else {
-        url = "http://localhost:9000/swagger_doc";
+        //url = "http://localhost:9000/swagger_doc";
+        url = "http://site4-secretPanda.yc.com/swagger_doc";
       }
 
       // Pre load translate...
@@ -71,7 +72,7 @@
         onFailure: function(data) {
           log("Unable to Load SwaggerUI");
         },
-        docExpansion: "none",
+        docExpansion: "list",
         jsonEditor: false,
         apisSorter: "alpha",
         defaultModelRendering: 'schema',
@@ -98,10 +99,12 @@
 
       // if you have an apiKey you would like to pre-populate on the page for demonstration purposes...
 
-        var apiKey = "yardmanager@example.com";
+        //var apiKey = "yardmanager@example.com";
+        var apiKey = "nick.adams@empire-cat.com";
         $('#input_apiKey').val(apiKey);
 
-        var autoken = "4rZUTGx9XJTBNH6vHERx";
+        //var autoken = "4rZUTGx9XJTBNH6vHERx";
+        var autoken = "mTJc2QCBtiX_hNt1yXMK";
         $('#input_authToken').val(autoken);
 
 
@@ -122,8 +125,8 @@
     <a id="logo" href="http://yardclub.com">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
     <form id='api_selector'>
       <div class='input'><input placeholder="http://example.com/api" id="input_baseUrl" name="baseUrl" type="text"/></div>
-      <div class='input'><input placeholder="api_key" id="input_apiKey" name="apiKey" type="text"/></div>
-        <div class='input'><input placeholder="auth_token" id="input_authToken" name="auth_token" type="text"/></div>
+      <div class='input'><input placeholder="api_key" id="input_apiKey" name="apiKey" type="text" style="display:none"/></div>
+        <div class='input'><input placeholder="auth_token" id="input_authToken" name="auth_token" type="text" style="display:none"/></div>
 
         <div class='input'><a id="explore" href="#" data-sw-translate>Explore</a></div>
     </form>
