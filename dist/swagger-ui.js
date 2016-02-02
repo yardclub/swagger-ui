@@ -4821,7 +4821,7 @@ Operation.prototype.asCurl = function (args1, args2) {
       if(typeof value === 'string'){
         value = value.replace(/\'/g, '\\u0027');
       }
-      results.push('--header \'' + key + ': ' + value + '\'');
+      results.push('-H \'' + key + ': ' + value + '\'');
     }
   }
 
