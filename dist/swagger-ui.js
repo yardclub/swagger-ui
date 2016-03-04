@@ -4741,7 +4741,7 @@ Operation.prototype.setContentTypes = function (args, opts) {
       } else if (definedFileParams.length > 0) { // if a file, must be multipart/form-data
         consumes = 'multipart/form-data';
       } else {                                   // default to x-www-from-urlencoded
-        consumes = 'application/x-www-form-urlencoded';
+        consumes = 'application/json';
       }
     }
   }
