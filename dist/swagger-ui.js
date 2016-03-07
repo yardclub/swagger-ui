@@ -4631,15 +4631,17 @@ Operation.prototype.execute = function (arg1, arg2, arg3, arg4, parent) {
   var body = this.getBody(contentTypeHeaders, args, opts);
   var url = this.urlify(args);
 
-  var pairs = body.split("&");
-  var result = {};
+  if(typeof body != 'undefined') {
+    var pairs = body.split("&");
+    var result = {};
 
-  pairs.forEach(function(pair) {
-    pair = pair.split('=');
-    result[pair[0]] = decodeURIComponent(pair[1] || '');
-  });
-  var body_replacement = JSON.stringify(result);
-  body = body_replacement;
+    pairs.forEach(function(pair) {
+      pair = pair.split('=');
+      result[pair[0]] = decodeURIComponent(pair[1] || '');
+    });
+    var body_replacement = JSON.stringify(result);
+    body = body_replacement;
+  }
 
   if(url.indexOf('.{format}') > 0) {
     if(headers) {
@@ -4831,7 +4833,6 @@ Operation.prototype.asCurl = function (args1, args2) {
       body = obj.body;
     }
 
-    debugger;
     var pairs = body.split("&");
     var result = {};
     pairs.forEach(function(pair) {
